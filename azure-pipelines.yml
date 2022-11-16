@@ -29,18 +29,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloudConnection'
-    organization: 'sgorky0892'
-    scannerMode: 'Other'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner,
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.projectKey=sgorky0892_HelloWebapp
-      sonar.projectName=HelloWebapp
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
