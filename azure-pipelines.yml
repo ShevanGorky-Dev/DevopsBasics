@@ -29,3 +29,14 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloudConnection'
+    organization: 'sgorky0892'
+    scannerMode: 'MSBuild'
+    projectKey: 'sgorky0892_HelloWebapp'
+    projectName: 'HelloWebapp'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
